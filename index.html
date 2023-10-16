@@ -1,0 +1,50 @@
+<div id="firstElement"></div>
+<div id="secondElement"></div>
+<script>
+    console.log("Map Testing 1")
+    const firstElement = document.getElementById("firstElement");
+    const secondElement = document.getElementById("secondElement");
+    console.log("[Step 1] Initialize first element : " + firstElement);
+    console.log("[Step 1] Initialize second element : " + secondElement);
+    const map = {};
+    map[firstElement] = { data: "firstElement"};
+    console.log("[Object map] first element : " + map[firstElement].data);
+    map[secondElement] = { data: "secondElement"};
+    console.log("[Object map] second element : " + map[secondElement].data);
+    console.log("[Object map] first element : " + map[firstElement].data);
+
+    const map1 = new Map();
+    map1.set(firstElement, "firstElement");
+    console.log("[Constuctor map] first element : " + map1.get(firstElement));
+    map1.set(secondElement, "secondElement");
+    console.log("[Constuctor map] second element : " + map1.get(secondElement));
+    console.log("[Constuctor map] first element : " + map1.get(firstElement));
+    console.log("[Original]");
+    for(let e of map1){
+        console.log("[Constuctor map] Key : " + e[0] + ", Val : " + e[1]);
+    }
+    console.log("[Change]");
+    map1.set(firstElement, "ttt");
+    for(let e of map1){
+        console.log("[Constuctor map] Key : " + e[0] + ", Val : " + e[1]);
+    }
+
+    let food1 = new WeakMap();
+    let fruit1 = { name: "apple" };
+
+    food1.set(fruit1, "good");
+    fruit1 = null;
+    console.log("[Weak map]");
+    console.log(food1);
+
+    let food2 = new Map();
+    let fruit2 = { name: "apple" };
+
+    food2.set(fruit2, "good");
+    console.log("[map]");
+    console.log(food2);
+
+    fruit2 = null;
+    console.log("[map]");
+    console.log(food2);
+</script>
